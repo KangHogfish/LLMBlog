@@ -1,0 +1,79 @@
+version: '3'
+
+services:
+  # 博客前端
+  hexo:
+    image: node:latest
+    volumes:
+      - ./blog:/blog
+    working_dir: /blog
+    command: >
+      bash -c "npm install && hexo server"
+    networks:
+      - app_network
+
+  # Nginx 反向代理
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./nginx/logs:/var/log/nginx
+    depends_on:
+      - hexo
+      - one-api
+      - chatchat
+    networks:
+      - app_network
+
+  # One API 服务
+  one-api:
+    image: justsong/one-api
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ=Asia/Shanghai
+      - SQL_DSN=root:123456@tcp(mysql:3306)/oneapi
+    volumes:
+      - ./one-api-data:/data
+    depends_on:
+      - mysql
+    networks:
+      - app_network
+
+  # Langchain-Chatchat 服务
+  chatchat:
+    build:
+      context: ./chatchat
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"  # WebUI 端口
+      - "7861:7861"  # API 端口
+    volumes:
+      - ./chatchat-data:/app/data
+    environment:
+      - DEFAULT_BIND_HOST=0.0.0.0
+    depends_on:
+      - one-api
+    networks:
+      - app_network
+
+  # MySQL 数据库(给 One API 使用)
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=oneapi
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

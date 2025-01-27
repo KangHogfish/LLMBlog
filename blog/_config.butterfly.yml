@@ -1,0 +1,212 @@
+# nav:
+#   # Navigation bar logo image
+#   logo: /img/background.jpg
+#   display_title: true
+#   # Whether to fix navigation bar
+#   fixed: false
+
+# 主页subtitle
+subtitle:
+  enable: true
+  # Typewriter Effect (打字效果)
+  effect: true
+  # Customize typed.js
+  # https://github.com/mattboldt/typed.js/#customization
+  typed_option:
+  # source 调用第三方服务
+  # false 关闭调用
+  # 1  调用一言网的一句话（简体） https://hitokoto.cn/
+  # 2  调用一句网（简体） http://yijuzhan.com/
+  # 3  调用今日诗词（简体） https://www.jinrishici.com/
+  # subtitle 会先显示 source , 再显示 sub 的内容
+  source: false
+  # 如果关闭打字效果，subtitle 只会显示 sub 的第一行文字
+  sub:
+    - 剣煌龍
+    - Blade of Kirameki
+
+
+menu:
+  Home: / || fas fa-home
+  Archives: /archives/ || fas fa-archive
+  Tags: /tags/ || fas fa-tags
+  Categories: /categories/ || fas fa-folder-open
+  List||fas fa-list:
+    Music: /music/ || fas fa-music
+    Movie: /movies/ || fas fa-video
+  Link: /link/ || fas fa-link
+  About: /about/ || fas fa-heart
+
+
+code_blocks:
+  # Code block theme: darker / pale night / light / ocean / false
+  theme: ocean
+  macStyle: false
+  # Code block height limit (unit: px)
+  height_limit: false
+  word_wrap: false
+
+  # Toolbar
+  copy: true
+  language: true
+  # true: shrink the code blocks | false: expand the code blocks | none: expand code blocks and hide the button
+  shrink: false
+  fullpage: false
+
+
+avatar:
+  img: /img/avatar.png
+  effect: false # 头像会一直转圈
+
+index_img: /img/background.jpg
+default_top_img: /img/background.jpg
+
+
+# About the per_page
+# if you set it to true, it will load mathjax/katex script in each page
+# if you set it to false, it will load mathjax/katex script according to your setting (add the 'mathjax: true' or 'katex: true' in page's front-matter)
+math:
+  # Choose: mathjax, katex
+  # Leave it empty if you don't need math
+  use: mathjax
+  per_page: true
+  hide_scrollbar: true
+
+mathjax:
+  # Enable the contextual menu
+  enableMenu: true
+  # Choose: all / ams / none, This controls whether equations are numbered and how
+  tags: none
+
+search:
+  # Choose: algolia_search / local_search / docsearch
+  # leave it empty if you don't need search
+  use: local_search
+  placeholder: 
+
+# Local Search
+local_search:
+  # Preload the search data when the page loads.
+  preload: true
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: 3
+  # Unescape html strings to the readable one.
+  unescape: false
+  CDN:
+
+
+# 暗黑模式设置
+darkmode:
+  # 是否启用暗黑模式
+  enable: true
+  # 切换暗黑/明亮模式的按钮
+  button: true
+  # 是否自动切换暗黑/明亮模式
+  # autoChangeMode: 1  跟随系统设置，如果系统不支持暗黑模式，则在晚上 6 点到早上 6 点之间切换暗黑模式
+  # autoChangeMode: 2  在晚上 6 点到早上 6 点之间切换暗黑模式
+  # autoChangeMode: false  不自动切换
+  autoChangeMode: false
+  # 设置明亮模式时间，值在 0 到 24 之间。如果未设置，默认值为 6 和 18
+  start: 
+  end: 
+
+theme_color:
+  enable: true
+  main: '#0D1117' # 黑色，用于大面积组件（背景等）
+  # paginator: '#49B1F5' # 亮青蓝色，用于分页器等小面积组件
+  # button_hover: '#00C4B6' # 高亮青蓝色，用于按钮悬停效果
+  # text_selection: '#49B1F5' # 亮青蓝色，用于文字选中背景
+  # link_color: '#A4D8FA' # 浅青蓝色，用于链接
+  # meta_color: '#858585' # 灰色，用于元信息
+  # hr_color: '#49B1F5' # 亮青蓝色，用于分割线
+  # code_foreground: '#A4D8FA' # 浅青蓝色，用于代码字体
+  # code_background: 'rgba(13, 17, 23, 0.9)' # 深黑色半透明，用于代码块背景
+  # toc_color: '#49B1F5' # 亮青蓝色，用于目录
+  # blockquote_padding_color: '#00C4B6' # 高亮青蓝色，用于引用块边框
+  # blockquote_background_color: '#0D1117' # 黑色，用于引用块背景
+  # scrollbar_color: '#49B1F5' # 亮青蓝色，用于滚动条
+  # meta_theme_color_light: '#0D1117' # 白色，用于浅色主题
+  # meta_theme_color_dark: '#0D1117' # 黑色，用于深色主题
+
+aside:
+  enable: true
+  hide: false
+  # Show the button to hide the aside in bottom right button
+  button: true
+  mobile: true
+  # Position: left / right
+  position: right
+  display:
+    archive: true
+    tag: true
+    category: true
+  card_author:
+    enable: true
+    description:
+    button:
+      enable: true
+      icon: fab fa-github
+      text: Follow Me
+      link: https://github.com/Sarfflow
+  card_announcement:
+    enable: false
+    content: This is my Blog
+  card_recent_post:
+    enable: true
+    # If set 0 will show all
+    limit: 5
+    # Sort: date / updated
+    sort: date
+    sort_order:
+  card_newest_comments:
+    enable: false
+    sort_order:
+    limit: 6
+    # Unit: mins, save data to localStorage
+    storage: 10
+    avatar: true
+  card_categories:
+    enable: true
+    # If set 0 will show all
+    limit: 8
+    # Choose: none / true / false
+    expand: none
+    sort_order:
+  card_tags:
+    enable: true
+    # If set 0 will show all
+    limit: 40
+    color: false
+    # Order of tags, random/name/length
+    orderby: random
+    # Sort of order. 1, asc for ascending; -1, desc for descending
+    order: 1
+    sort_order:
+  card_archives:
+    enable: true
+    # Type: monthly / yearly
+    type: monthly
+    # Eg: YYYY年MM月
+    format: MMMM YYYY
+    # Sort of order. 1, asc for ascending; -1, desc for descending
+    order: -1
+    # If set 0 will show all
+    limit: 8
+    sort_order:
+  card_post_series:
+    enable: true
+    # The title shows the series name
+    series_title: false
+    # Order by title or date
+    orderBy: 'date'
+    # Sort of order. 1, asc for ascending; -1, desc for descending
+    order: -1
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+    sort_order:
+    # Time difference between publish date and now
+    # Formal: Month/Day/Year Time or Year/Month/Day Time
+    # Leave it empty if you don't enable this feature
+    runtime_date:
