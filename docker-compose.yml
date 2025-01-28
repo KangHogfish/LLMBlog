@@ -79,7 +79,7 @@ services:
    
   # Langchain-Chatchat 服务
   chatchat:
-    image: chatimage/chatchat:0.3.1.3-93e2c87-20240829
+    image: ccr.ccs.tencentyun.com/chatchat/chatchat:0.3.1.2-2024-0720
     restart: always
     ports:
       - "8501:8501"  # WebUI 端口
