@@ -17,10 +17,11 @@ RUN npm install
 COPY . .
 
 # 生成静态文件
-RUN hexo generate
+RUN hexo clean && hexo generate
+
+# 使用一个简单的 HTTP 服务器来提供静态文件
+FROM nginx:alpine
+COPY --from=0 /app/public /usr/share/nginx/html
 
 # 暴露端口
-EXPOSE 4000
-
-# 启动 Hexo 服务器
-CMD ["hexo", "server"]
+EXPOSE 80
