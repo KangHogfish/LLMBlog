@@ -13,7 +13,8 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://sarfflow.github.io
+url: http://8.134.137.46
+root: /
 permalink: :year/:month/:day/:id/
 permalink_defaults:
 pretty_urls:
@@ -40,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: ture
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -100,6 +101,9 @@ theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: local
-  branch: pubilc/
+
+server:
+  port: 4000      # 对应 Docker 中暴露的端口
+  compress: true
+  header: true
+  cache: false
