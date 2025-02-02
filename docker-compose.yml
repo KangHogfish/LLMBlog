@@ -5,7 +5,7 @@ services:
     build:
       context: ./blog
     ports:
-      - "80"
+      - "4000"
     networks:
       - app_network
   nginx:
