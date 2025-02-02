@@ -103,7 +103,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 
 server:
-  port: 4000      # 对应 Docker 中暴露的端口
+  port: 80     # 对应 Docker 中暴露的端口
   compress: true
   header: true
   cache: false

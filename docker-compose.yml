@@ -2,11 +2,12 @@ version: '3'
 services:
   # Hexo博客前端
   blog:
-    build: .
+    build:
+      context: ./blog
     ports:
-      - "80:80"
+      - "80"
     networks:
-      - app-network
+      - app_network
   nginx:
     image: nginx:alpine
     container_name: nginx
