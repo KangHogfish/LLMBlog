@@ -1,0 +1,28 @@
+version: '3'
+services:
+  # Hexo博客前端
+  blog:
+    build: .
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - blog
+      - service1
+      - service2
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
